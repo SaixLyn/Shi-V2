@@ -122,5 +122,4 @@ mainButton.MouseButton1Click:Connect(function()
 
 farmingButton.MouseButton1Click:Connect(function()
     closeUI()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/imhenne187/SilenceV2/refs/heads/main/src/SilenceV2Farming.luau"))()
-end)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13Farming/refs/heads/main/Packs",true))()
