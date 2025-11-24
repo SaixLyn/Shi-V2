@@ -118,8 +118,7 @@ local farmingButton = createButton("Execute Farming Script", UDim2.new(0, 20, 0,
 
 mainButton.MouseButton1Click:Connect(function()
     closeUI()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/imhenne187/SilenceV2/refs/heads/main/src/SilenceV2Main.luau"))()
-end)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13-Main/refs/heads/main/K13Main.Lua",true))()
 
 farmingButton.MouseButton1Click:Connect(function()
     closeUI()
