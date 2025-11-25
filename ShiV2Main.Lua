@@ -1,16 +1,19 @@
 local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 
-local localPlayer = Players.LocalPlayer
-local displayName = localPlayer.DisplayName
-local username = localPlayer.Name
-local userId = localPlayer.UserId
-
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local RAINBOW_COLORS = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.16, Color3.fromRGB(255, 127, 0)),
+    ColorSequenceKeypoint.new(0.32, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(0.48, Color3.fromRGB(0, 255, 0)),
+    ColorSequenceKeypoint.new(0.64, Color3.fromRGB(0, 0, 255)),
+    ColorSequenceKeypoint.new(0.80, Color3.fromRGB(75, 0, 130)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211))
+}
 
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ModernUI"
@@ -53,11 +56,7 @@ Title.TextSize = 24
 Title.Parent = Frame
 
 local titleGradient = Instance.new("UIGradient")
-titleGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 150, 150)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 0, 0)),
-}
+titleGradient.Color = RAINBOW_COLORS
 titleGradient.Parent = Title
 
 local function createButton(name, position, parent)
@@ -78,11 +77,7 @@ local function createButton(name, position, parent)
     UICornerBtn.CornerRadius = UDim.new(0, 12)
     UICornerBtn.Parent = button
 
-    local redGradient = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 100, 100)),
-        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 0, 0)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 0, 0)),
-    }
+    local rainbowGradient = RAINBOW_COLORS
     local darkGradient = ColorSequence.new{
         ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 80, 80)),
         ColorSequenceKeypoint.new(1, Color3.fromRGB(40, 40, 40)),
@@ -93,17 +88,17 @@ local function createButton(name, position, parent)
     buttonBGGradient.Parent = button
 
     local textGradient = Instance.new("UIGradient")
-    textGradient.Color = redGradient
+    textGradient.Color = rainbowGradient
     textGradient.Parent = button
 
     button.MouseEnter:Connect(function()
-        buttonBGGradient.Color = redGradient
+        buttonBGGradient.Color = rainbowGradient
         textGradient.Color = darkGradient
     end)
 
     button.MouseLeave:Connect(function()
         buttonBGGradient.Color = darkGradient
-        textGradient.Color = redGradient
+        textGradient.Color = rainbowGradient
     end)
 
     return button
@@ -119,7 +114,9 @@ local farmingButton = createButton("Execute Farming Script", UDim2.new(0, 20, 0,
 mainButton.MouseButton1Click:Connect(function()
     closeUI()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13-Main/refs/heads/main/K13Main.Lua",true))()
+end)
 
 farmingButton.MouseButton1Click:Connect(function()
     closeUI()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13Farming/refs/heads/main/Packs",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13Farming/refs/heads/main/K13Farming.Lua",true))()
+end)
