@@ -136,5 +136,5 @@ end)
 
 farmingButton.MouseButton1Click:Connect(function()
     closeUI()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13Farming/refs/heads/main/Packs",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SaixLyn/K13-Farming/refs/heads/main/Packs",true))()
 end)
