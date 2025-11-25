@@ -19,13 +19,31 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ModernUI"
 ScreenGui.Parent = PlayerGui
 
+local GalaxyBorder = Instance.new("Frame")
+GalaxyBorder.Name = "GalaxyBorder"
+GalaxyBorder.Size = UDim2.new(0, 304, 0, 184)
+GalaxyBorder.Position = UDim2.new(0.5, 0, 0.5, 0)
+GalaxyBorder.AnchorPoint = Vector2.new(0.5, 0.5)
+GalaxyBorder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GalaxyBorder.BorderSizePixel = 0
+GalaxyBorder.Parent = ScreenGui
+GalaxyBorder.BackgroundTransparency = 0
+
+local UICornerBorder = Instance.new("UICorner")
+UICornerBorder.CornerRadius = UDim.new(0, 17)
+UICornerBorder.Parent = GalaxyBorder
+
+local borderGradient = Instance.new("UIGradient")
+borderGradient.Color = RAINBOW_COLORS
+borderGradient.Parent = GalaxyBorder
+
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 300, 0, 180)
 Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 Frame.BorderSizePixel = 0
-Frame.Parent = ScreenGui
+Frame.Parent = GalaxyBorder
 Frame.ClipsDescendants = true
 Frame.BackgroundTransparency = 0
 
